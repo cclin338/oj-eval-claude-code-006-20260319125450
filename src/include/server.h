@@ -291,7 +291,12 @@ void ExitGame() {
   }
 
   // Print statistics
-  std::cout << visited_count << ' ' << marked_count << '\n';
+  if (game_state == 1) {
+    // If player wins, all mines are considered correctly marked
+    std::cout << visited_count << ' ' << total_mines << '\n';
+  } else {
+    std::cout << visited_count << ' ' << marked_count << '\n';
+  }
   exit(0);  // Exit the game immediately
 }
 
