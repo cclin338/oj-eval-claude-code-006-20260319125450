@@ -1,0 +1,6 @@
+/workspace/problem_006/build/CMakeFiles/edit_cache.dir
+/workspace/problem_006/build/CMakeFiles/rebuild_cache.dir
+/workspace/problem_006/build/src/CMakeFiles/server.dir
+/workspace/problem_006/build/src/CMakeFiles/client.dir
+/workspace/problem_006/build/src/CMakeFiles/edit_cache.dir
+/workspace/problem_006/build/src/CMakeFiles/rebuild_cache.dir

@@ -130,17 +130,24 @@ def main():
     client = ACMOJClient(args.token)
 
     if args.command == "submit":
-        try:
-            with open(args.code_file, 'r', encoding='utf-8') as f:
-                code_text = f.read()
-        except FileNotFoundError:
-            print(f"Error: Code file not found at {args.code_file}")
-            exit(1)
-        except Exception as e:
-            print(f"Error: Failed to read code file: {e}")
-            exit(1)
+        if args.language == "git":
+            # Git submission
+            result = client.submit_git(args.problem_id, args.code_file)
+        else:
+            # Regular code file submission
+            try:
+                with open(args.code_file, 'r', encoding='utf-8') as f:
+                    code_text = f.read()
+            except FileNotFoundError:
+                print(f"Error: Code file not found at {args.code_file}")
+                exit(1)
+            except Exception as e:
+                print(f"Error: Failed to read code file: {e}")
+                exit(1)
 
-        result = client.submit_code(args.problem_id, args.language, code_text)
+            # This would need a submit_code method to be implemented in ACMOJClient
+            print(f"Error: Direct code submission not implemented. Use --language git with a git URL.")
+            exit(1)
 
     elif args.command == "status":
         result = client.get_submission_detail(args.submission_id)
